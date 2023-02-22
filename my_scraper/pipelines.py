@@ -12,7 +12,7 @@ class PostgresSQLPipeline:
         password = config.get('postgresql', 'password')
         database = config.get('postgresql', 'database')
         
-        time.sleep(3)
+        time.sleep(10)
         self.connection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
 
         self.cur = self.connection.cursor()
