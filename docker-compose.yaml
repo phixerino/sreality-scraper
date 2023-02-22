@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+        postgres:
+                image: 'postgres:latest'
+                environment:
+                        - POSTGRES_USER=luxonis
+                        - POSTGRES_PASSWORD=luxonis
+                        - POSTGRES_DB=sreality
+                volumes:
+                        - ./postgres_data:/var/lib/postgresql/data
+                ports:
+                        - '5432:5432'
+                restart: always
+        scraper:
+                build: .
+                volumes:
+                        - .:/usr/src/app
+                shm_size: '2g'
+                network_mode: host
+
