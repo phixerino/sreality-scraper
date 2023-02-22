@@ -6,3 +6,7 @@
 ### Usage
 
 `docker-compose up`
+
+### Expected result (tested on Linux)
+
+![result](result.png)
