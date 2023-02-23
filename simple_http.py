@@ -2,7 +2,6 @@ import configparser
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from functools import partial
 import psycopg2
-import time
 
 
 class MyHandler(BaseHTTPRequestHandler):
@@ -49,7 +48,6 @@ def main():
     password = config.get('postgresql', 'password')
     database = config.get('postgresql', 'database')
     
-    time.sleep(3)
     connection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
     cur = connection.cursor()
     

@@ -18,4 +18,5 @@ services:
                         - .:/usr/src/app
                 shm_size: '2g'
                 network_mode: host
+                restart: on-failure
 
