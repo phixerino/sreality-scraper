@@ -24,10 +24,10 @@ class MyHandler(BaseHTTPRequestHandler):
         html_str += f'<tr><td>Flat</td>\n'
         html_str += f'<td>Image</td></tr>\n'
         
-        self.cursor.execute("""SELECT * FROM img_urls""")
+        self.cursor.execute("""SELECT title, url FROM img_urls ORDER BY title ASC""")
         res = self.cursor.fetchall()
         for item in res:
-            html_str = self.add_row(html_str, item[1], item[2])
+            html_str = self.add_row(html_str, item[0], item[1])
         
         html_str += '</table>\n'
         html_str += '</body></html>'
